@@ -1,8 +1,7 @@
-/* eslint-disable no-console */
-/* Code planning
- Code will output a single random message to the console everytime the function runs ( Random but somehat grammtically coherent)
- There i need to plan what combination of phrases of word can always go together
-*/
+/** ***********************************************************
+ * Author: Tete Ikpeme
+ * Purpose: Generate random weather messages (With outfit recommendations)
+ ************************************************************ */
 
 const time = ["Today", "Tomorrow", "Tonight", "This week"];
 
@@ -10,7 +9,6 @@ const adjective = [
   "slightly",
   "extremely",
   "very",
-  " ",
   "partially",
   "sporadically",
   "a little",
@@ -30,9 +28,9 @@ const weather = [
 ];
 
 const expressionsForCold = [
-  "you should consider wearing a jacket.",
-  "you should don a jacket.",
-  "you may want to probably layer up.",
+  "You should consider wearing a jacket.",
+  "You could don a jacket.",
+  "You may want to probably layer up.",
 ];
 
 const expressionsForWarm = [
@@ -52,18 +50,19 @@ const makeSentence = () => {
     randomWeather === "chilly" ||
     randomWeather === "frosty" ||
     randomWeather === "snowy" ||
-    randomWeather === "rainy"
+    randomWeather === "rainy" ||
+    randomWeather === "haily"
   ) {
     randomExpression =
-      expressionsForCold[Math.round(Math.random() * expressionsForCold.length)];
+      expressionsForCold[Math.floor(Math.random() * expressionsForCold.length)];
   } else if (
     randomWeather === "sunny" ||
-    randomWeather === "swealtering hot" ||
+    randomWeather === "hot" ||
     randomWeather === "humid" ||
     randomWeather === "cloudy"
   ) {
     randomExpression =
-      expressionsForWarm[Math.round(Math.random() * expressionsForWarm.length)];
+      expressionsForWarm[Math.floor(Math.random() * expressionsForWarm.length)];
   } else randomExpression = "";
   console.log(
     `${randomTime}'s weather will be ${randomAdjective} ${randomWeather}. ${randomExpression}`
